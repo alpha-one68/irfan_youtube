@@ -1,0 +1,595 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #0f0f0f;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* =================================
+   PAGE
+================================= */
+
+.watch-page {
+    min-height: 100vh;
+    background: #0f0f0f;
+}
+
+
+/* =================================
+   NAVBAR
+================================= */
+
+.watch-navbar {
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+
+    height: 64px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 30px;
+
+    background: #0f0f0f;
+
+    border-bottom: 1px solid #272727;
+}
+
+
+/* Logo */
+
+.watch-logo {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    cursor: pointer;
+
+    font-size: 21px;
+
+    font-weight: 700;
+}
+
+.watch-logo-icon {
+    width: 40px;
+
+    height: 28px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #ff0000;
+
+    border-radius: 7px;
+
+    font-size: 13px;
+}
+
+.watch-logo span span {
+    color: #ff0000;
+}
+
+
+/* Navbar buttons */
+
+.watch-navbar-right {
+    display: flex;
+
+    gap: 10px;
+}
+
+.watch-navbar-right button {
+    padding: 9px 17px;
+
+    border: none;
+
+    border-radius: 20px;
+
+    background: #272727;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-weight: 600;
+}
+
+.watch-navbar-right button:hover {
+    background: #3a3a3a;
+}
+
+
+/* =================================
+   CONTAINER
+================================= */
+
+.watch-container {
+    max-width: 1400px;
+
+    margin: auto;
+
+    padding: 35px 30px 60px;
+}
+
+
+/* =================================
+   HEADER
+================================= */
+
+.watch-header {
+    margin-bottom: 30px;
+}
+
+.watch-header h1 {
+    font-size: 28px;
+
+    margin-bottom: 8px;
+}
+
+.watch-header p {
+    color: #999;
+
+    font-size: 14px;
+}
+
+
+/* =================================
+   VIDEO GRID
+================================= */
+
+.video-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fill,
+            minmax(280px, 1fr)
+        );
+
+    gap: 30px 18px;
+}
+
+
+/* =================================
+   VIDEO CARD
+================================= */
+
+.video-card {
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease;
+}
+
+.video-card:hover {
+    transform: translateY(-3px);
+}
+
+
+/* =================================
+   THUMBNAIL
+================================= */
+
+.video-thumbnail {
+    position: relative;
+
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    overflow: hidden;
+
+    border-radius: 10px;
+
+    background: #202020;
+}
+
+.video-thumbnail video {
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    background: #202020;
+}
+
+
+/* Play */
+
+.play-overlay {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(0, 0, 0, 0.75);
+
+    color: white;
+
+    font-size: 20px;
+
+    padding-left: 3px;
+
+    opacity: 0;
+
+    transition:
+        opacity 0.2s ease;
+}
+
+.video-card:hover .play-overlay {
+    opacity: 1;
+}
+
+
+/* =================================
+   DETAILS
+================================= */
+
+.video-details {
+    display: flex;
+
+    gap: 12px;
+
+    padding-top: 13px;
+}
+
+
+/* Avatar */
+
+.video-avatar {
+    width: 38px;
+    height: 38px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #ff0000;
+
+    font-size: 14px;
+
+    font-weight: 700;
+}
+
+
+/* Info */
+
+.video-info {
+    min-width: 0;
+}
+
+.video-info h2 {
+    display: -webkit-box;
+
+    overflow: hidden;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    line-height: 1.35;
+
+    -webkit-line-clamp: 2;
+
+    line-clamp: 2;
+
+    -webkit-box-orient: vertical;
+}
+
+.video-description {
+    margin-top: 6px;
+
+    display: -webkit-box;
+
+    overflow: hidden;
+
+    color: #999;
+
+    font-size: 13px;
+
+    line-height: 1.4;
+
+    -webkit-line-clamp: 2;
+
+    line-clamp: 2;
+
+    -webkit-box-orient: vertical;
+}
+
+.video-filename {
+    margin-top: 6px;
+
+    overflow: hidden;
+
+    color: #666;
+
+    font-size: 11px;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+}
+
+
+/* =================================
+   LOADING
+================================= */
+
+.watch-loading {
+    min-height: 300px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 14px;
+
+    color: #999;
+}
+
+.watch-spinner {
+    width: 35px;
+
+    height: 35px;
+
+    border: 3px solid #333;
+
+    border-top-color: #ff0000;
+
+    border-radius: 50%;
+
+    animation:
+        spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =================================
+   ERROR
+================================= */
+
+.watch-error {
+    padding: 40px;
+
+    text-align: center;
+
+    background: #181818;
+
+    border: 1px solid #333;
+
+    border-radius: 12px;
+
+    color: #ff8585;
+}
+
+.watch-error button {
+    margin-top: 18px;
+
+    padding: 10px 20px;
+
+    border: none;
+
+    border-radius: 20px;
+
+    background: #ff0000;
+
+    color: white;
+
+    cursor: pointer;
+}
+
+
+/* =================================
+   EMPTY
+================================= */
+
+.empty-videos {
+    min-height: 400px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+}
+
+.empty-videos > div {
+    width: 70px;
+    height: 70px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 20px;
+
+    border-radius: 50%;
+
+    background: #ff0000;
+
+    font-size: 25px;
+}
+
+.empty-videos h2 {
+    margin-bottom: 8px;
+}
+
+.empty-videos p {
+    color: #888;
+}
+
+.empty-videos button {
+    margin-top: 20px;
+
+    padding: 11px 20px;
+
+    border: none;
+
+    border-radius: 22px;
+
+    background: #ff0000;
+
+    color: white;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 600px) {
+
+    .watch-navbar {
+        padding: 0 15px;
+    }
+
+    .watch-logo {
+        font-size: 18px;
+    }
+
+    .watch-logo-icon {
+        width: 35px;
+        height: 25px;
+    }
+
+    .watch-navbar-right button {
+        padding: 8px 12px;
+
+        font-size: 12px;
+    }
+
+    .watch-container {
+        padding:
+            25px 14px 50px;
+    }
+
+    .watch-header h1 {
+        font-size: 24px;
+    }
+
+    .video-grid {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+    }
+}
+
+.video-thumbnail {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #000;
+}
+
+.video-thumbnail video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.play-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 55px;
+    height: 55px;
+
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.7);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+    font-size: 22px;
+
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+.video-card:hover .play-overlay {
+    opacity: 0;
+}
+
+
+.delete-video-btn {
+    margin-top: 12px;
+    padding: 9px 18px;
+    background: #dc2626;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.delete-video-btn:hover {
+    background: #b91c1c;
+}

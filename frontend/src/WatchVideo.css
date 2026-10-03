@@ -1,0 +1,586 @@
+
+/* =================================
+   RESET
+================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    background: #0f0f0f;
+    color: #ffffff;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+}
+
+
+/* =================================
+   PAGE
+================================= */
+
+.watch-video-page {
+    min-height: 100vh;
+
+    background: #0f0f0f;
+
+    color: white;
+}
+
+
+/* =================================
+   NAVBAR
+================================= */
+
+.player-navbar {
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+
+    height: 64px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 30px;
+
+    background: #0f0f0f;
+
+    border-bottom: 1px solid #272727;
+}
+
+
+/* =================================
+   LOGO
+================================= */
+
+.watch-logo {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    cursor: pointer;
+
+    font-size: 21px;
+
+    font-weight: 700;
+
+    user-select: none;
+}
+
+
+.watch-logo-icon {
+    width: 40px;
+
+    height: 28px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #ff0000;
+
+    border-radius: 7px;
+
+    font-size: 13px;
+}
+
+
+.watch-logo > span > span {
+    color: #ff0000;
+}
+
+
+/* =================================
+   NAVBAR BUTTON
+================================= */
+
+.player-navbar-actions {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+.player-navbar button {
+    padding: 9px 17px;
+
+    border: none;
+
+    border-radius: 20px;
+
+    background: #272727;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition:
+        background 0.2s ease;
+}
+
+
+.player-navbar button:hover {
+    background: #3a3a3a;
+}
+
+
+/* =================================
+   PLAYER CONTAINER
+================================= */
+
+.player-container {
+    width: 100%;
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding: 30px 25px 70px;
+}
+
+
+/* =================================
+   VIDEO PLAYER
+================================= */
+
+.player-wrapper {
+    width: 100%;
+
+    background: #000000;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 15px 50px rgba(
+            0,
+            0,
+            0,
+            0.45
+        );
+}
+
+
+.main-video {
+    width: 100%;
+
+    display: block;
+
+    aspect-ratio: 16 / 9;
+
+    background: #000000;
+
+    object-fit: contain;
+}
+
+
+/* =================================
+   VIDEO INFORMATION
+================================= */
+
+.video-page-info {
+    padding-top: 24px;
+}
+
+
+.video-page-info h1 {
+    color: #ffffff;
+
+    font-size: 26px;
+
+    font-weight: 700;
+
+    line-height: 1.35;
+
+    margin-bottom: 8px;
+
+    word-break: break-word;
+}
+
+
+/* =================================
+   ORIGINAL FILENAME
+================================= */
+
+.original-name {
+    color: #777777;
+
+    font-size: 13px;
+
+    margin-bottom: 12px;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+}
+
+
+/* =================================
+   META
+================================= */
+
+.video-meta {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: #999999;
+
+    font-size: 13px;
+
+    margin-bottom: 20px;
+}
+
+
+/* =================================
+   DESCRIPTION
+================================= */
+
+.video-description-box {
+    padding: 18px;
+
+    background: #181818;
+
+    border: 1px solid #292929;
+
+    border-radius: 10px;
+}
+
+
+.video-description-box p {
+    color: #cccccc;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    white-space: pre-wrap;
+
+    word-break: break-word;
+}
+
+
+/* =================================
+   DELETE BUTTON
+================================= */
+
+.delete-video-btn {
+    margin-top: 20px;
+
+    padding: 11px 20px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    border: 1px solid #dc2626;
+
+    border-radius: 8px;
+
+    background: #dc2626;
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.15s ease;
+}
+
+
+.delete-video-btn:hover {
+    background: #b91c1c;
+
+    border-color: #b91c1c;
+}
+
+
+.delete-video-btn:active {
+    transform: scale(0.96);
+}
+
+
+/* =================================
+   LOADING
+================================= */
+
+.player-loading {
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    background: #0f0f0f;
+
+    color: #999999;
+
+    font-size: 15px;
+}
+
+
+.loading-spinner {
+    width: 38px;
+
+    height: 38px;
+
+    border: 3px solid #333333;
+
+    border-top-color: #ff0000;
+
+    border-radius: 50%;
+
+    animation:
+        player-spin 0.8s linear infinite;
+}
+
+
+@keyframes player-spin {
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+/* =================================
+   ERROR
+================================= */
+
+.player-error {
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 30px;
+
+    background: #0f0f0f;
+}
+
+
+.error-box {
+    width: 100%;
+
+    max-width: 450px;
+
+    padding: 35px;
+
+    background: #181818;
+
+    border: 1px solid #292929;
+
+    border-radius: 14px;
+
+    text-align: center;
+}
+
+
+.error-icon {
+    width: 55px;
+
+    height: 55px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #351717;
+
+    color: #ff5555;
+
+    font-size: 26px;
+
+    font-weight: 700;
+}
+
+
+.error-box h2 {
+    margin-bottom: 10px;
+
+    font-size: 22px;
+}
+
+
+.error-box p {
+    margin-bottom: 22px;
+
+    color: #999999;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+
+.error-box button {
+    padding: 10px 20px;
+
+    border: none;
+
+    border-radius: 20px;
+
+    background: #ff0000;
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease;
+}
+
+
+.error-box button:hover {
+    background: #cc0000;
+}
+
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 700px) {
+
+    .player-navbar {
+        padding: 0 15px;
+    }
+
+
+    .watch-logo {
+        font-size: 18px;
+    }
+
+
+    .watch-logo-icon {
+        width: 35px;
+
+        height: 25px;
+    }
+
+
+    .player-navbar button {
+        padding: 8px 13px;
+
+        font-size: 12px;
+    }
+
+
+    .player-container {
+        padding:
+            20px 14px 50px;
+    }
+
+
+    .player-wrapper {
+        border-radius: 8px;
+    }
+
+
+    .video-page-info {
+        padding-top: 18px;
+    }
+
+
+    .video-page-info h1 {
+        font-size: 21px;
+    }
+
+
+    .video-description-box {
+        padding: 14px;
+    }
+
+
+    .delete-video-btn {
+        width: 100%;
+
+        margin-top: 18px;
+    }
+
+}
+
+
+@media (max-width: 400px) {
+
+    .player-navbar {
+        height: 58px;
+    }
+
+
+    .watch-logo {
+        font-size: 16px;
+    }
+
+
+    .watch-logo-icon {
+        width: 32px;
+
+        height: 23px;
+    }
+
+
+    .player-navbar button {
+        padding: 7px 10px;
+
+        font-size: 11px;
+    }
+
+}

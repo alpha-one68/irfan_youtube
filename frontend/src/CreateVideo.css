@@ -1,0 +1,607 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #0f0f0f;
+    color: #ffffff;
+}
+
+
+/* =====================================
+   PAGE
+===================================== */
+
+.create-video-page {
+    min-height: 100vh;
+    background: #0f0f0f;
+}
+
+
+/* =====================================
+   NAVBAR
+===================================== */
+
+.create-video-navbar {
+    height: 64px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 35px;
+
+    border-bottom: 1px solid #272727;
+
+    background: #0f0f0f;
+}
+
+
+/* =====================================
+   LOGO
+===================================== */
+
+.create-video-logo {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    font-size: 21px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.logo-icon {
+    width: 41px;
+    height: 29px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #ff0000;
+
+    border-radius: 7px;
+
+    font-size: 13px;
+
+    padding-left: 2px;
+}
+
+.create-video-logo > span > span {
+    color: #ff0000;
+}
+
+
+/* =====================================
+   DASHBOARD BUTTON
+===================================== */
+
+.dashboard-button {
+    padding: 10px 20px;
+
+    border: none;
+
+    border-radius: 22px;
+
+    background: #272727;
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.dashboard-button:hover {
+    background: #3d3d3d;
+}
+
+
+/* =====================================
+   CONTAINER
+===================================== */
+
+.create-video-container {
+    width: 100%;
+
+    max-width: 760px;
+
+    margin: 0 auto;
+
+    padding: 55px 20px 80px;
+}
+
+
+/* =====================================
+   CARD
+===================================== */
+
+.create-video-card {
+    padding: 35px;
+
+    background: #181818;
+
+    border: 1px solid #303030;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 15px 50px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =====================================
+   HEADER
+===================================== */
+
+.create-header {
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    margin-bottom: 35px;
+}
+
+.create-header h1 {
+    font-size: 27px;
+
+    margin-bottom: 6px;
+}
+
+.create-header p {
+    color: #999999;
+
+    font-size: 14px;
+}
+
+
+/* =====================================
+   UPLOAD ICON
+===================================== */
+
+.upload-icon {
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(255, 0, 0, 0.12);
+
+    color: #ff0000;
+
+    font-size: 25px;
+
+    font-weight: 500;
+}
+
+
+/* =====================================
+   FORM
+===================================== */
+
+.form-group {
+    margin-bottom: 23px;
+}
+
+.form-group label:first-child {
+    display: block;
+
+    margin-bottom: 9px;
+
+    color: #dddddd;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+
+/* =====================================
+   INPUT
+===================================== */
+
+.form-group input[type="text"],
+.form-group textarea {
+    width: 100%;
+
+    border: 1px solid #444444;
+
+    border-radius: 8px;
+
+    outline: none;
+
+    background: #0f0f0f;
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.form-group input[type="text"] {
+    height: 50px;
+
+    padding: 0 15px;
+}
+
+.form-group textarea {
+    min-height: 125px;
+
+    padding: 14px 15px;
+
+    resize: vertical;
+
+    line-height: 1.5;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #666666;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #3ea6ff;
+
+    box-shadow:
+        0 0 0 1px #3ea6ff;
+}
+
+.form-group input:disabled,
+.form-group textarea:disabled {
+    opacity: 0.6;
+
+    cursor: not-allowed;
+}
+
+
+/* =====================================
+   VIDEO UPLOAD AREA
+===================================== */
+
+.video-upload-area {
+    min-height: 190px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 25px;
+
+    border: 1px dashed #555555;
+
+    border-radius: 12px;
+
+    background: #121212;
+
+    cursor: pointer;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+.video-upload-area:hover {
+    border-color: #ff0000;
+
+    background: #171717;
+}
+
+.upload-cloud {
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 5px;
+
+    border-radius: 50%;
+
+    background: #272727;
+
+    color: #ffffff;
+
+    font-size: 24px;
+}
+
+.video-upload-area strong {
+    font-size: 15px;
+}
+
+.video-upload-area span {
+    color: #777777;
+
+    font-size: 12px;
+}
+
+.video-upload-area .browse-text {
+    margin-top: 5px;
+
+    color: #3ea6ff;
+
+    font-weight: 600;
+}
+
+
+/* =====================================
+   SELECTED VIDEO
+===================================== */
+
+.selected-video {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin-top: -5px;
+
+    margin-bottom: 22px;
+
+    padding: 13px;
+
+    border: 1px solid #303030;
+
+    border-radius: 9px;
+
+    background: #121212;
+}
+
+.selected-video-icon {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 7px;
+
+    background: #ff0000;
+
+    font-size: 13px;
+}
+
+.selected-video-info {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+.selected-video-info strong {
+    max-width: 560px;
+
+    overflow: hidden;
+
+    color: #dddddd;
+
+    font-size: 13px;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+}
+
+.selected-video-info span {
+    color: #777777;
+
+    font-size: 11px;
+}
+
+
+/* =====================================
+   ERROR
+===================================== */
+
+.error-message {
+    margin-bottom: 20px;
+
+    padding: 12px 14px;
+
+    border: 1px solid #672c2c;
+
+    border-radius: 8px;
+
+    background: #291414;
+
+    color: #ff8b8b;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+
+/* =====================================
+   SUCCESS
+===================================== */
+
+.success-message {
+    margin-bottom: 20px;
+
+    padding: 12px 14px;
+
+    border: 1px solid #285c3c;
+
+    border-radius: 8px;
+
+    background: #12251a;
+
+    color: #6ee7a0;
+
+    font-size: 13px;
+}
+
+
+/* =====================================
+   UPLOAD BUTTON
+===================================== */
+
+.upload-button {
+    width: 100%;
+    height: 50px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    border: none;
+
+    border-radius: 25px;
+
+    background: #ff0000;
+
+    color: #ffffff;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.1s ease;
+}
+
+.upload-button:hover {
+    background: #d90000;
+}
+
+.upload-button:active {
+    transform: scale(0.98);
+}
+
+.upload-button:disabled {
+    background: #650000;
+
+    cursor: not-allowed;
+
+    opacity: 0.7;
+}
+
+
+/* =====================================
+   SPINNER
+===================================== */
+
+.button-spinner {
+    width: 17px;
+    height: 17px;
+
+    border: 2px solid rgba(255, 255, 255, 0.35);
+
+    border-top-color: #ffffff;
+
+    border-radius: 50%;
+
+    animation: upload-spin 0.7s linear infinite;
+}
+
+@keyframes upload-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media (max-width: 600px) {
+
+    .create-video-navbar {
+        height: 58px;
+
+        padding: 0 15px;
+    }
+
+    .create-video-logo {
+        font-size: 18px;
+    }
+
+    .logo-icon {
+        width: 35px;
+        height: 25px;
+
+        font-size: 11px;
+    }
+
+    .dashboard-button {
+        padding: 8px 14px;
+
+        font-size: 12px;
+    }
+
+    .create-video-container {
+        padding:
+            30px 14px 50px;
+    }
+
+    .create-video-card {
+        padding: 25px 19px;
+
+        border-radius: 13px;
+    }
+
+    .create-header {
+        gap: 13px;
+
+        margin-bottom: 28px;
+    }
+
+    .upload-icon {
+        width: 47px;
+        height: 47px;
+
+        font-size: 21px;
+    }
+
+    .create-header h1 {
+        font-size: 23px;
+    }
+
+    .create-header p {
+        font-size: 12px;
+    }
+
+    .video-upload-area {
+        min-height: 170px;
+    }
+}
