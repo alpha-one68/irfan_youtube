@@ -34,6 +34,12 @@ urlpatterns = [
         name="video-stream"
     ),
     path("delete/<int:video_id>", views.delete_video, name="delete"),
-    path("forget_password/", views.forget_password, name="forget_password"),
-    path("reset_password/", views.reset_password, name="reset_password"),
-] 
+    
+    path(
+    "check-video/<int:pk>/",
+    views.check_video_file,
+    name="check_video_file"
+),
+    
+    
+]
