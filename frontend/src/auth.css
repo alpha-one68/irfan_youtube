@@ -1,431 +1,78 @@
 
-/* ======================================
-   FAMILYTUBE LOGIN
-   SAME SPLIT DESIGN: PC AND MOBILE
-====================================== */
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html,
-body,
-#root {
-  width: 100%;
-  min-height: 100%;
-}
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: #ffffff;
-  color: #20232b;
-}
-
-/* FULL SCREEN */
-
-.auth-page {
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
-  min-height: 100dvh;
-  background: #ffffff;
-  overflow-x: clip;
-}
-
-/* LEFT PINK HALF */
-
-.auth-page::before {
-  content: "";
-  position: absolute;
-  inset: 0 auto 0 0;
-  width: 51%;
-  height: 100%;
-
-  background: linear-gradient(
-    145deg,
-    #fff7f6 0%,
-    #ffe2df 55%,
-    #ffc9c6 100%
-  );
-}
-
-/* DECORATION */
-
-.auth-page::after {
-  content: "";
-  position: absolute;
-  width: 340px;
-  height: 340px;
-  left: -120px;
-  bottom: -140px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.4);
-  pointer-events: none;
-}
-
-/* MAIN LAYOUT */
-
-.auth-card {
-  position: relative;
-  z-index: 1;
-
-  width: 100%;
-  max-width: none;
-  min-height: 100vh;
-  min-height: 100dvh;
-
-  padding: 40px 8%;
-
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: center;
-
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
-}
-
-/* BRAND ON LEFT */
-
-.brand {
-  position: absolute;
-  top: 50%;
-  left: 8%;
-  transform: translateY(-50%);
-
-  width: 37%;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 14px;
-}
-
-.brand-icon {
-  width: 65px;
-  height: 46px;
-  flex-shrink: 0;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background: #ef242b;
-  border-radius: 13px;
-  box-shadow: 0 10px 25px rgba(239,36,43,.2);
-}
-
-.brand-icon span {
-  color: white;
-  font-size: 23px;
-}
-
-.brand h1 {
-  font-size: clamp(30px, 4vw, 55px);
-  font-weight: 800;
-  letter-spacing: -2px;
-  white-space: nowrap;
-}
-
-.brand h1 span {
-  color: #ef242b;
-}
-
-.brand::after {
-  content:
-    "Discover, create and share your favorite videos with FamilyTube.";
-
-  display: block;
-  flex-basis: 100%;
-
-  max-width: 420px;
-  margin-top: 16px;
-
-  color: #806e72;
-  font-size: 17px;
-  line-height: 1.7;
-}
-
-/* RIGHT SIDE CONTENT */
-
-.auth-header,
-.auth-card form,
-.auth-card > .error-message,
-.auth-card > .divider,
-.auth-card > .google-btn,
-.auth-footer {
-  width: 42%;
-  max-width: 420px;
-  margin-left: auto;
-  margin-right: 0;
-}
-
-.auth-header {
-  margin-bottom: 30px;
-}
-
-.auth-header h2 {
-  color: #20232b;
-  font-size: 36px;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-
-.auth-header p {
-  color: #838996;
-  font-size: 15px;
-  line-height: 1.5;
-}
-
-/* INPUTS */
-
-.input-group {
-  width: 100%;
-  margin-bottom: 23px;
-}
-
-.input-group label {
-  display: block;
-  color: #4a5260;
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-
-.input-group > input,
-.password-box input {
-  width: 100%;
-  min-width: 0;
-  height: 54px;
-  padding: 0 17px;
-
-  background: #f9fafb;
-  border: 1px solid #dfe3e9;
-  border-radius: 11px;
-
-  color: #252934;
-  outline: none;
-  font-size: 16px;
-}
-
-.input-group input::placeholder {
-  color: #9ca3af;
-}
-
-.input-group input:focus {
-  background: white;
-  border-color: #ee242b;
-  box-shadow: 0 0 0 3px rgba(238,36,43,.09);
-}
-
-/* PASSWORD */
-
-.password-box {
-  position: relative;
-  width: 100%;
-}
-
-.password-box input {
-  padding-right: 60px;
-}
-
-.password-box button {
-  position: absolute;
-  top: 50%;
-  right: 9px;
-  transform: translateY(-50%);
-
-  background: transparent;
-  border: none;
-  color: #ef242b;
-
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-/* LOGIN BUTTON */
-
-.signin-btn {
-  width: 100%;
-  min-height: 54px;
-  margin-top: 8px;
-
-  background: #ef242b;
-  color: #ffffff;
-
-  border: none;
-  border-radius: 28px;
-
-  font-size: 16px;
-  font-weight: 700;
-  cursor: pointer;
-
-  box-shadow: 0 10px 24px rgba(239,36,43,.17);
-}
-
-.signin-btn:hover {
-  background: #d71920;
-}
-
-.signin-btn:disabled {
-  opacity: .65;
-  cursor: not-allowed;
-}
-
-/* ERROR */
-
-.error-message {
-  margin-bottom: 20px;
-  padding: 13px;
-
-  background: #fff1f1;
-  border: 1px solid #ffd1d4;
-  border-radius: 10px;
-
-  color: #c52b34;
-  font-size: 13px;
-  overflow-wrap: anywhere;
-}
-
-/* OPTIONAL DIVIDER */
-
-.divider {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-top: 24px;
-  margin-bottom: 24px;
-  color: #a0a5ad;
-  font-size: 12px;
-}
-
-.divider::before,
-.divider::after {
-  content: "";
-  height: 1px;
-  flex: 1;
-  background: #e2e5e9;
-}
-
-/* OPTIONAL GOOGLE BUTTON */
-
-.google-btn {
-  min-height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-
-  border: 1px solid #dfe3e9;
-  border-radius: 26px;
-  background: white;
-  color: #252934;
-
-  font-weight: 600;
-  cursor: pointer;
-}
-
-/* FOOTER */
-
-.auth-footer {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 12px;
-
-  margin-top: 26px;
-  padding-top: 18px;
-
-  border-top: 1px solid #e8eaee;
-  color: #a0a5ae;
-  font-size: 11px;
-}
-
-.auth-footer a {
-  color: #7f8794;
-  text-decoration: none;
-}
-
-/* ======================================
-   TABLET
-   KEEP SAME LEFT/RIGHT LAYOUT
-====================================== */
-
-@media (max-width: 900px) {
-  .auth-card {
-    padding: 30px 4%;
+/* =========================================
+   FAMILYTUBE PHONE ONLY
+   PC DESIGN WILL NOT CHANGE
+========================================= */
+
+@media screen and (max-width: 600px) {
+
+  .auth-page {
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    position: relative;
+    background: #ffffff;
+    overflow-x: hidden;
   }
 
-  .brand {
-    left: 4%;
-    width: 40%;
-  }
-
-  .brand h1 {
-    font-size: clamp(22px, 3.8vw, 34px);
-    letter-spacing: -1px;
-  }
-
-  .brand::after {
-    font-size: 14px;
-  }
-
-  .auth-header,
-  .auth-card form,
-  .auth-card > .error-message,
-  .auth-card > .divider,
-  .auth-card > .google-btn,
-  .auth-footer {
-    width: 45%;
-  }
-}
-
-/* ======================================
-   PHONE - SAME TWO-COLUMN DESIGN
-====================================== */
-
-@media (max-width: 600px) {
-
-  /* Pink LEFT, white RIGHT */
+  /* Pink left side */
 
   .auth-page::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+
     width: 46%;
     height: 100%;
+
     background: linear-gradient(
-      155deg,
-      #fff6f5,
-      #ffd4d1
+      145deg,
+      #fff7f6 0%,
+      #ffe2df 55%,
+      #ffc9c6 100%
     );
   }
 
   .auth-page::after {
-    width: 180px;
-    height: 180px;
-    left: -95px;
-    bottom: -80px;
+    display: none;
   }
+
+  /* Full-screen two-column layout */
 
   .auth-card {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    max-width: none;
     min-height: 100dvh;
+
+    margin: 0;
     padding: 20px 12px;
 
+    display: flex;
+    flex-direction: column;
     align-items: flex-end;
     justify-content: center;
+
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
   }
 
-  /* Left logo stays on left */
+  /* Logo stays in pink panel */
 
-  .brand {
+  .auth-card .brand {
     position: absolute;
     top: 50%;
     left: 12px;
     transform: translateY(-50%);
 
-    width: calc(46% - 22px);
+    width: calc(46% - 24px);
+    max-width: none;
 
     display: flex;
     flex-direction: column;
@@ -437,52 +84,58 @@ body {
   }
 
   .brand-icon {
-    width: 42px;
+    width: 43px;
     height: 32px;
-    border-radius: 8px;
+    border-radius: 9px;
+    flex-shrink: 0;
   }
 
   .brand-icon span {
-    font-size: 16px;
+    font-size: 15px;
   }
 
   .brand h1 {
-    font-size: clamp(17px, 4.6vw, 24px);
-    letter-spacing: -0.8px;
+    font-size: clamp(16px, 4.5vw, 22px);
+    font-weight: 800;
+    letter-spacing: -0.7px;
     white-space: nowrap;
   }
 
-  .brand::after {
-    content:
-      "Discover, create and share your favorite videos.";
+  .auth-card .brand::after {
+    content: "Discover, create and share your favorite videos.";
+    display: block;
 
     font-size: 12px;
     line-height: 1.6;
-    margin-top: 6px;
     color: #806e72;
+    margin-top: 8px;
   }
 
-  /* Form always remains on right */
+  /* Right-side login elements */
 
-  .auth-header,
+  .auth-card .auth-header,
   .auth-card form,
   .auth-card > .error-message,
   .auth-card > .divider,
   .auth-card > .google-btn,
-  .auth-footer {
+  .auth-card > .switch-auth,
+  .auth-card .auth-footer {
     width: 52%;
     max-width: none;
+
     margin-left: auto;
     margin-right: 0;
   }
 
-  .auth-header {
-    margin-bottom: 20px;
+  /* Heading */
+
+  .auth-card .auth-header {
+    margin-bottom: 24px;
   }
 
   .auth-header h2 {
-    font-size: 24px;
-    margin-bottom: 7px;
+    font-size: 25px;
+    margin-bottom: 8px;
   }
 
   .auth-header p {
@@ -490,8 +143,11 @@ body {
     line-height: 1.5;
   }
 
+  /* Input fields */
+
   .input-group {
-    margin-bottom: 17px;
+    width: 100%;
+    margin-bottom: 18px;
   }
 
   .input-group label {
@@ -501,71 +157,86 @@ body {
 
   .input-group > input,
   .password-box input {
-    height: 46px;
+    width: 100%;
+    height: 48px;
+
     padding: 0 10px;
     font-size: 16px;
-    border-radius: 8px;
+
+    border-radius: 9px;
   }
 
   .password-box input {
-    padding-right: 49px;
+    padding-right: 52px;
   }
 
   .password-box button {
-    right: 4px;
+    right: 5px;
     font-size: 11px;
   }
 
+  /* Sign in */
+
   .signin-btn {
-    min-height: 46px;
-    margin-top: 5px;
+    width: 100%;
+    min-height: 48px;
+    margin-top: 7px;
+
     font-size: 14px;
+    border-radius: 25px;
   }
 
-  .divider {
-    margin-top: 16px;
-    margin-bottom: 16px;
+  /* Optional Google button */
+
+  .auth-card > .divider {
+    margin-top: 18px;
+    margin-bottom: 18px;
   }
 
   .google-btn {
     min-height: 44px;
+    padding: 8px;
     font-size: 11px;
   }
 
-  .auth-footer {
-    gap: 6px;
-    margin-top: 20px;
-    padding-top: 12px;
+  /* Footer */
+
+  .auth-card .auth-footer {
+    margin-top: 24px;
+    padding-top: 14px;
+    padding-bottom: 0;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 7px;
+
     font-size: 10px;
     text-align: center;
   }
 }
 
-/* SMALL PHONE */
+/* Extra-small phones */
 
-@media (max-width: 360px) {
-
-  .brand h1 {
-    font-size: 16px;
+@media screen and (max-width: 360px) {
+  .auth-card {
+    padding: 16px 8px;
   }
 
-  .brand::after {
-    font-size: 11px;
+  .auth-card .brand {
+    left: 8px;
+    width: calc(46% - 16px);
+  }
+
+  .brand h1 {
+    font-size: 15px;
   }
 
   .auth-header h2 {
     font-size: 22px;
   }
 
-  .auth-card {
-    padding: 16px 9px;
-  }
-}
-
-/* SHORT MOBILE LANDSCAPE */
-
-@media (max-height: 530px) {
-  .auth-card {
-    justify-content: flex-start;
+  .auth-card .brand::after {
+    font-size: 11px;
   }
 }
