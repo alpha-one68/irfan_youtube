@@ -262,53 +262,76 @@ from rest_framework import status
 from .models import CreateVideo
 
 
+
+import logging
+
+from django.shortcuts import get_object_or_404
+
+from rest_framework.decorators import (
+    api_view,
+    authentication_classes,
+    permission_classes,
+)
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+from rest_framework import status
+
+from rest_framework_simplejwt.authentication import (
+    JWTAuthentication,
+)
+
+from .models import CreateVideo
+
+
+logger = logging.getLogger(__name__)
+
+
 @api_view(["DELETE"])
+@authentication_classes([JWTAuthentication])
 @permission_classes([IsAuthenticated])
 def delete_video(request, video_id):
 
-    try:
-        video = CreateVideo.objects.get(
-            id=video_id,
-            user=request.user
-        )
-    except CreateVideo.DoesNotExist:
-        return Response(
-            {
-                "error": "Video not found or you are not the owner."
-            },
-            status=status.HTTP_404_NOT_FOUND
-        )
+    # Find the video owned by the logged-in user
+    video = get_object_or_404(
+        CreateVideo,
+        id=video_id,
+        user=request.user,
+    )
 
-    # Save the file path before deleting the database object
-    file_path = None
-
+    # Delete the video file using Cloudinary storage
     if video.video:
-        file_path = video.video.path
-
-    # Delete database record first
-    video.delete()
-
-    # Try to remove the physical video file
-    if file_path:
-        import os
-
         try:
-            if os.path.exists(file_path):
-                os.remove(file_path)
+            storage = video.video.storage
+            file_name = video.video.name
 
-        except PermissionError:
-            # The browser may still be streaming the file.
-            # Database record is already deleted.
-            pass
+            storage.delete(file_name)
+
+        except Exception:
+            logger.exception(
+                "Failed to delete stored video %s",
+                video.id,
+            )
+
+            return Response(
+                {
+                    "error": (
+                        "Unable to delete video file "
+                        "from cloud storage."
+                    )
+                },
+                status=status.HTTP_502_BAD_GATEWAY,
+            )
+
+    # Delete the database record after storage deletion
+    video.delete()
 
     return Response(
         {
             "message": "Video deleted successfully"
         },
-        status=status.HTTP_200_OK
+        status=status.HTTP_200_OK,
     )
-    
-    
+
     
     
 from django.shortcuts import get_object_or_404
