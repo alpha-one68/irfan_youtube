@@ -838,3 +838,337 @@ body {
   }
 }
 
+/* ==========================================
+   FAMILYTUBE MOBILE FINAL FIX
+   CLEAN + RESPONSIVE + FULL SCREEN
+========================================== */
+
+@media (max-width: 800px) {
+
+  .auth-page {
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    position: relative;
+    background: #ffffff;
+    overflow-x: hidden;
+  }
+
+  /* Smooth pink background without hard line */
+
+  .auth-page::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: auto;
+
+    width: 100%;
+    height: 360px;
+
+    background: linear-gradient(
+      180deg,
+      #ffe6e3 0%,
+      #fff0ee 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .auth-page::after {
+    display: none;
+  }
+
+  /* Full screen layout */
+
+  .auth-card {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    max-width: none;
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    padding: 30px 24px 26px;
+
+    margin: 0;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  /* FamilyTube logo */
+
+  .auth-card .brand {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+
+    width: 100%;
+    max-width: 460px;
+
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+
+    gap: 12px;
+
+    margin: 30px auto 58px;
+  }
+
+  .brand::after {
+    display: none;
+    content: none;
+  }
+
+  .brand-icon {
+    width: 49px;
+    height: 36px;
+    flex-shrink: 0;
+    border-radius: 10px;
+  }
+
+  .brand h1 {
+    font-size: 29px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    white-space: nowrap;
+  }
+
+  /* Form container widths */
+
+  .auth-card .auth-header,
+  .auth-card form,
+  .auth-card > .error-message,
+  .auth-card > .divider,
+  .auth-card > .google-btn,
+  .auth-card > .switch-auth,
+  .auth-card .auth-footer {
+    width: 100%;
+    max-width: 460px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Welcome heading */
+
+  .auth-card .auth-header {
+    margin-bottom: 28px;
+  }
+
+  .auth-header h2 {
+    font-size: 30px;
+    line-height: 1.2;
+    font-weight: 750;
+    margin-bottom: 9px;
+  }
+
+  .auth-header p {
+    font-size: 14px;
+    color: #747985;
+    line-height: 1.5;
+  }
+
+  /* Input fields */
+
+  .input-group {
+    width: 100%;
+    margin-bottom: 22px;
+  }
+
+  .input-group label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 9px;
+  }
+
+  .input-group > input,
+  .password-box input {
+    width: 100%;
+    min-width: 0;
+    height: 54px;
+
+    padding: 0 16px;
+
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid #e0e2e7;
+    border-radius: 12px;
+
+    color: #23252b;
+  }
+
+  .input-group input:focus {
+    border-color: #f5222d;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(245, 34, 45, 0.08);
+  }
+
+  .password-box {
+    position: relative;
+    width: 100%;
+  }
+
+  .password-box input {
+    padding-right: 80px;
+  }
+
+  .password-box button {
+    right: 12px;
+    color: #ed1b24;
+  }
+
+  /* Sign in button */
+
+  .signin-btn {
+    width: 100%;
+    min-height: 54px;
+
+    margin-top: 10px;
+
+    background: #f5222d;
+    color: white;
+    border: none;
+    border-radius: 30px;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    box-shadow: 0 9px 22px rgba(245, 34, 45, 0.15);
+  }
+
+  .signin-btn:active {
+    transform: scale(0.98);
+  }
+
+  /* Google login, when enabled */
+
+  .auth-card > .divider {
+    margin-top: 28px;
+    margin-bottom: 28px;
+  }
+
+  .google-btn {
+    min-height: 52px;
+    border-radius: 28px;
+  }
+
+  /* Footer near bottom */
+
+  .auth-card .auth-footer {
+    margin-top: auto;
+    padding-top: 28px;
+    padding-bottom: 4px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+
+    color: #9ca3af;
+    font-size: 12px;
+  }
+
+  .auth-footer a {
+    color: #7c828c;
+  }
+}
+
+/* ==========================================
+   SMALL MOBILE SCREENS
+========================================== */
+
+@media (max-width: 480px) {
+
+  .auth-card {
+    padding: 22px 20px 24px;
+  }
+
+  .auth-card .brand {
+    margin-top: 22px;
+    margin-bottom: 48px;
+  }
+
+  .brand h1 {
+    font-size: 27px;
+  }
+
+  .auth-header h2 {
+    font-size: 28px;
+  }
+
+  .auth-card .auth-header {
+    margin-bottom: 26px;
+  }
+
+  .input-group {
+    margin-bottom: 20px;
+  }
+
+  .auth-card .auth-footer {
+    font-size: 11px;
+  }
+}
+
+/* ==========================================
+   VERY SMALL PHONES
+========================================== */
+
+@media (max-width: 360px) {
+
+  .auth-card {
+    padding: 18px 15px 22px;
+  }
+
+  .auth-card .brand {
+    margin-top: 18px;
+    margin-bottom: 36px;
+  }
+
+  .brand h1 {
+    font-size: 24px;
+  }
+
+  .auth-header h2 {
+    font-size: 26px;
+  }
+
+  .input-group > input,
+  .password-box input {
+    height: 50px;
+  }
+
+  .signin-btn {
+    min-height: 50px;
+  }
+}
+
+/* Short landscape phone screens */
+
+@media (max-width: 800px) and (max-height: 650px) {
+  .auth-card .brand {
+    margin-top: 12px;
+    margin-bottom: 30px;
+  }
+
+  .auth-card .auth-footer {
+    margin-top: 32px;
+  }
+}
+
+
+
+
