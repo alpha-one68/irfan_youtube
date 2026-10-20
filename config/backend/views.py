@@ -311,3 +311,50 @@ def delete_video(request, video_id):
     
     
     
+from django.shortcuts import get_object_or_404
+from rest_framework.decorators import (
+    api_view,
+    authentication_classes,
+    permission_classes,
+)
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+from rest_framework_simplejwt.authentication import JWTAuthentication
+
+from .models import CreateVideo
+
+
+from django.shortcuts import get_object_or_404
+from rest_framework.decorators import (
+    api_view,
+    authentication_classes,
+    permission_classes,
+)
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+from rest_framework_simplejwt.authentication import JWTAuthentication
+
+from .models import CreateVideo
+
+
+@api_view(["GET"])
+@authentication_classes([JWTAuthentication])
+@permission_classes([IsAuthenticated])
+def check_video_file(request, pk):
+    video = get_object_or_404(
+        CreateVideo,
+        pk=pk,
+        user=request.user,
+    )
+
+    file_exists = (
+        video.video.storage.exists(video.video.name)
+        if video.video else False
+    )
+
+    return Response({
+        "id": video.id,
+        "title": video.title,
+        "file_exists": file_exists,
+        "file_name": video.video.name if video.video else None,
+    })
