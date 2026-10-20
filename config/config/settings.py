@@ -55,7 +55,6 @@ ALLOWED_HOSTS += [
 # ==========================================
 
 INSTALLED_APPS = [
-    # Django
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -63,12 +62,13 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
 
-    # Third-party
     "corsheaders",
     "rest_framework",
     "rest_framework_simplejwt",
 
-    # Your application
+    "cloudinary_storage",
+    "cloudinary",
+
     "backend",
 ]
 
@@ -199,18 +199,12 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 STORAGES = {
     "default": {
-        "BACKEND": (
-            "django.core.files.storage.FileSystemStorage"
-        ),
+        "BACKEND": "cloudinary_storage.storage.VideoMediaCloudinaryStorage",
     },
     "staticfiles": {
-        "BACKEND": (
-            "whitenoise.storage."
-            "CompressedManifestStaticFilesStorage"
-        ),
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
 }
-
 
 # ==========================================
 # MEDIA FILES
