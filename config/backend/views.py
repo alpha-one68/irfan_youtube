@@ -1,10 +1,11 @@
 from rest_framework.decorators import api_view, authentication_classes, permission_classes,parser_classes
 from rest_framework.response import Response
 from rest_framework import status
-from rest_framework.permissions import IsAuthenticated
-from .serializers import RegisterSerializers,LoginSerializers,CreateVideoSerializer, ResetPasswordSerializers
+from rest_framework.permissions import IsAuthenticated,IsAdminUser
+from .serializers import LoginSerializers,CreateVideoSerializer
 from rest_framework.parsers import MultiPartParser, FormParser
-from .models import AddUser, CreateVideo
+from .models import  CreateVideo
+from django.contrib.auth.models import User
 from rest_framework.views import APIView
 from django.contrib.auth.models import User
 from django.contrib.auth.tokens import default_token_generator
@@ -13,31 +14,10 @@ from django.utils.encoding import force_bytes,force_str
 from django.core.mail import send_mail,EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.contrib.auth import get_user_model
-
+from rest_framework.permissions import AllowAny
 User = get_user_model()
 
 
-@api_view(['POST'])
-@authentication_classes([])
-@permission_classes([])
-def register(request):
-
-    serializer = RegisterSerializers(data=request.data)
-
-    if serializer.is_valid():
-        serializer.save()
-
-        return Response(
-            {
-                "message": "Successfully registered"
-            },
-            status=status.HTTP_201_CREATED
-        )
-
-    return Response(
-        serializer.errors,
-        status=status.HTTP_400_BAD_REQUEST
-    )
     
     
     
@@ -57,7 +37,7 @@ from rest_framework_simplejwt.tokens import RefreshToken
 @api_view(['POST'])
 
 @authentication_classes([])
-@permission_classes([])
+@permission_classes([AllowAny])
 def login(request):
     serializers=LoginSerializers(data=request.data)
     if serializers.is_valid():
@@ -69,10 +49,8 @@ def login(request):
             'refresh':str(refresh),
             'user':{
                 'id':user.id,
-                'name':user.name,
                 'username':user.username,
                 'email':user.email,
-                'dob':user.dob
             }
             
         },status=status.HTTP_200_OK)

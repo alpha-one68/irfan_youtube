@@ -7,7 +7,6 @@ from .views import (
     VideoStreamView,
 )
 urlpatterns = [
-    path("register/", views.register, name="register"),
     path("login/", views.login, name="login"),
     path("dashboard/", views.dashboard, name="dashboard"),
     path("create_video/", views.create_video, name="create_video"),

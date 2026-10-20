@@ -215,17 +215,6 @@ function Login() {
                     </div>
 
 
-                    {/* Forgot password */}
-
-                    <div className="forgot-password">
-
-                        <Link to="/forgot-password">
-                            Forgot password?
-                        </Link>
-
-                    </div>
-
-
                     {/* Sign in button */}
 
                     <button
@@ -272,18 +261,7 @@ function Login() {
                     REGISTER
                 ========================= */}
 
-                <div className="switch-auth">
-
-                    <span>
-                        Don't have an account?
-                    </span>
-
-                    <Link to="/register">
-                        Create account
-                    </Link>
-
-                </div>
-
+                
 
                 {/* =========================
                     FOOTER
