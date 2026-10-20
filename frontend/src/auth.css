@@ -1,8 +1,8 @@
 
-/* ========================================
-   FAMILYTUBE FULL SCREEN LOGIN
-   PC + LAPTOP + TABLET + MOBILE
-======================================== */
+/* ======================================
+   FAMILYTUBE LOGIN
+   SAME SPLIT DESIGN: PC AND MOBILE
+====================================== */
 
 * {
   margin: 0;
@@ -10,93 +10,78 @@
   box-sizing: border-box;
 }
 
-html {
+html,
+body,
+#root {
   width: 100%;
   min-height: 100%;
 }
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+  background: #ffffff;
+  color: #20232b;
 }
 
-/* ========================================
-   FULL PAGE
-======================================== */
+/* FULL SCREEN */
 
 .auth-page {
+  position: relative;
   width: 100%;
   min-height: 100vh;
   min-height: 100dvh;
   background: #ffffff;
-  color: #20232b;
-  overflow-x: hidden;
-  position: relative;
+  overflow-x: clip;
 }
 
-/* LEFT SIDE BACKGROUND */
+/* LEFT PINK HALF */
 
 .auth-page::before {
   content: "";
   position: absolute;
   inset: 0 auto 0 0;
-  width: 52%;
+  width: 51%;
+  height: 100%;
 
-  background:
-    radial-gradient(
-      circle at 10% 15%,
-      rgba(255,255,255,0.9),
-      transparent 38%
-    ),
-    linear-gradient(
-      145deg,
-      #fff4f3 0%,
-      #ffe2df 55%,
-      #ffc9c6 100%
-    );
-
-  z-index: 0;
+  background: linear-gradient(
+    145deg,
+    #fff7f6 0%,
+    #ffe2df 55%,
+    #ffc9c6 100%
+  );
 }
 
-/* DECORATIVE SHAPE */
+/* DECORATION */
 
 .auth-page::after {
   content: "";
   position: absolute;
-
   width: 340px;
   height: 340px;
-
   left: -120px;
   bottom: -140px;
-
-  background: rgba(255, 255, 255, 0.4);
   border-radius: 50%;
-
+  background: rgba(255, 255, 255, 0.4);
   pointer-events: none;
 }
 
-/* ========================================
-   FULL WIDTH LAYOUT
-======================================== */
+/* MAIN LAYOUT */
 
 .auth-card {
+  position: relative;
+  z-index: 1;
+
   width: 100%;
   max-width: none;
   min-height: 100vh;
   min-height: 100dvh;
 
-  margin: 0;
-  padding: 50px 8%;
+  padding: 40px 8%;
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: flex-end;
-
-  gap: 0;
-
-  position: relative;
-  z-index: 1;
+  justify-content: center;
 
   background: transparent;
   border: none;
@@ -104,32 +89,25 @@ body {
   box-shadow: none;
 }
 
-/* ========================================
-   LEFT SIDE BRAND
-======================================== */
+/* BRAND ON LEFT */
 
 .brand {
   position: absolute;
-
-  left: 8%;
   top: 50%;
+  left: 8%;
   transform: translateY(-50%);
 
   width: 37%;
-
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  justify-content: flex-start;
-
+  flex-wrap: wrap;
   gap: 14px;
-
-  margin: 0;
 }
 
 .brand-icon {
   width: 65px;
   height: 46px;
+  flex-shrink: 0;
 
   display: flex;
   align-items: center;
@@ -137,29 +115,24 @@ body {
 
   background: #ef242b;
   border-radius: 13px;
-
-  box-shadow:
-    0 10px 25px rgba(239, 36, 43, 0.2);
+  box-shadow: 0 10px 25px rgba(239,36,43,.2);
 }
 
 .brand-icon span {
-  color: #ffffff;
+  color: white;
   font-size: 23px;
-  margin-left: 3px;
 }
 
 .brand h1 {
   font-size: clamp(30px, 4vw, 55px);
   font-weight: 800;
   letter-spacing: -2px;
-  color: #20232b;
+  white-space: nowrap;
 }
 
 .brand h1 span {
   color: #ef242b;
 }
-
-/* LEFT SIDE DESCRIPTION */
 
 .brand::after {
   content:
@@ -167,160 +140,118 @@ body {
 
   display: block;
   flex-basis: 100%;
-  max-width: 420px;
 
+  max-width: 420px;
   margin-top: 16px;
 
   color: #806e72;
   font-size: 17px;
-  font-weight: 400;
   line-height: 1.7;
 }
 
-/* ========================================
-   RIGHT SIDE FORM WIDTH
-======================================== */
+/* RIGHT SIDE CONTENT */
 
 .auth-header,
 .auth-card form,
 .auth-card > .error-message,
 .auth-card > .divider,
 .auth-card > .google-btn,
-.auth-card > .switch-auth,
 .auth-footer {
-  width: 100%;
+  width: 42%;
   max-width: 420px;
   margin-left: auto;
   margin-right: 0;
 }
 
-/* ========================================
-   LOGIN HEADER
-======================================== */
-
 .auth-header {
-  margin-bottom: 32px;
+  margin-bottom: 30px;
 }
 
 .auth-header h2 {
   color: #20232b;
-  font-size: clamp(30px, 3vw, 38px);
-  font-weight: 750;
-  letter-spacing: -1px;
-
+  font-size: 36px;
+  font-weight: 700;
   margin-bottom: 10px;
 }
 
 .auth-header p {
   color: #838996;
   font-size: 15px;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
-/* ========================================
-   INPUT GROUP
-======================================== */
+/* INPUTS */
 
 .input-group {
-  margin-bottom: 23px;
   width: 100%;
+  margin-bottom: 23px;
 }
 
 .input-group label {
   display: block;
-
   color: #4a5260;
   font-size: 14px;
   font-weight: 600;
-
   margin-bottom: 10px;
 }
-
-/* ========================================
-   TEXT INPUTS
-======================================== */
 
 .input-group > input,
 .password-box input {
   width: 100%;
+  min-width: 0;
   height: 54px;
-
   padding: 0 17px;
 
   background: #f9fafb;
-  color: #252934;
-
   border: 1px solid #dfe3e9;
   border-radius: 11px;
 
+  color: #252934;
   outline: none;
   font-size: 16px;
-
-  transition:
-    border-color 0.2s ease,
-    background 0.2s ease,
-    box-shadow 0.2s ease;
 }
 
 .input-group input::placeholder {
-  color: #a2a7b2;
-}
-
-.input-group input:hover {
-  border-color: #bfc6d0;
+  color: #9ca3af;
 }
 
 .input-group input:focus {
-  background: #ffffff;
+  background: white;
   border-color: #ee242b;
-  box-shadow:
-    0 0 0 3px rgba(238, 36, 43, 0.09);
+  box-shadow: 0 0 0 3px rgba(238,36,43,.09);
 }
 
-/* ========================================
-   PASSWORD
-======================================== */
+/* PASSWORD */
 
 .password-box {
-  width: 100%;
   position: relative;
+  width: 100%;
 }
 
 .password-box input {
-  padding-right: 85px;
+  padding-right: 60px;
 }
 
 .password-box button {
   position: absolute;
-
   top: 50%;
-  right: 12px;
+  right: 9px;
   transform: translateY(-50%);
-
-  padding: 9px;
 
   background: transparent;
   border: none;
-
   color: #ef242b;
-  font-size: 13px;
-  font-weight: 650;
 
+  font-size: 13px;
+  font-weight: 600;
   cursor: pointer;
 }
 
-.password-box button:hover {
-  color: #bc151b;
-}
-
-/* ========================================
-   SIGN IN BUTTON
-======================================== */
+/* LOGIN BUTTON */
 
 .signin-btn {
   width: 100%;
   min-height: 54px;
-
   margin-top: 8px;
 
   background: #ef242b;
@@ -331,115 +262,43 @@ body {
 
   font-size: 16px;
   font-weight: 700;
-
   cursor: pointer;
 
-  box-shadow:
-    0 10px 24px rgba(239, 36, 43, 0.17);
-
-  transition:
-    transform 0.2s ease,
-    background 0.2s ease,
-    box-shadow 0.2s ease;
+  box-shadow: 0 10px 24px rgba(239,36,43,.17);
 }
 
 .signin-btn:hover {
-  background: #dc171f;
-
-  box-shadow:
-    0 12px 30px rgba(239, 36, 43, 0.22);
-}
-
-.signin-btn:active {
-  transform: scale(0.98);
+  background: #d71920;
 }
 
 .signin-btn:disabled {
-  opacity: 0.65;
+  opacity: .65;
   cursor: not-allowed;
 }
 
-/* ========================================
-   ERROR
-======================================== */
+/* ERROR */
 
 .error-message {
-  margin-bottom: 22px;
-  padding: 13px 16px;
+  margin-bottom: 20px;
+  padding: 13px;
 
   background: #fff1f1;
-  color: #c52b34;
-
   border: 1px solid #ffd1d4;
   border-radius: 10px;
 
+  color: #c52b34;
   font-size: 13px;
-  line-height: 1.6;
   overflow-wrap: anywhere;
 }
 
-/* ========================================
-   FORGOT PASSWORD
-======================================== */
-
-.forgot-password {
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: 24px;
-}
-
-.forgot-password a {
-  color: #ef242b;
-  text-decoration: none;
-  font-size: 14px;
-}
-
-/* ========================================
-   GOOGLE BUTTON
-======================================== */
-
-.google-btn {
-  width: 100%;
-  min-height: 52px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  gap: 12px;
-
-  background: #ffffff;
-  border: 1px solid #dfe3e9;
-  border-radius: 26px;
-
-  color: #252934;
-  font-size: 14px;
-  font-weight: 600;
-
-  cursor: pointer;
-}
-
-.google-btn:hover {
-  background: #f7f8fa;
-}
-
-.google-icon {
-  font-size: 19px;
-  font-weight: 800;
-}
-
-/* ========================================
-   DIVIDER
-======================================== */
+/* OPTIONAL DIVIDER */
 
 .divider {
   display: flex;
   align-items: center;
-  gap: 13px;
-
-  margin-top: 25px;
-  margin-bottom: 25px;
-
+  gap: 12px;
+  margin-top: 24px;
+  margin-bottom: 24px;
   color: #a0a5ad;
   font-size: 12px;
 }
@@ -449,50 +308,41 @@ body {
   content: "";
   height: 1px;
   flex: 1;
-
   background: #e2e5e9;
 }
 
-/* ========================================
-   SWITCH AUTH
-======================================== */
+/* OPTIONAL GOOGLE BUTTON */
 
-.switch-auth {
-  display: flex;
-  justify-content: center;
-  gap: 6px;
-
-  margin-top: 28px;
-
-  color: #777f8b;
-  font-size: 14px;
-}
-
-.switch-auth a {
-  color: #ef242b;
-  font-weight: 650;
-  text-decoration: none;
-}
-
-/* ========================================
-   FOOTER
-======================================== */
-
-.auth-footer {
+.google-btn {
+  min-height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 10px;
+
+  border: 1px solid #dfe3e9;
+  border-radius: 26px;
+  background: white;
+  color: #252934;
+
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* FOOTER */
+
+.auth-footer {
+  display: flex;
+  justify-content: center;
   flex-wrap: wrap;
+  gap: 12px;
 
-  gap: 14px;
-
-  margin-top: 30px;
-  padding-top: 20px;
+  margin-top: 26px;
+  padding-top: 18px;
 
   border-top: 1px solid #e8eaee;
-
   color: #a0a5ae;
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .auth-footer a {
@@ -500,22 +350,28 @@ body {
   text-decoration: none;
 }
 
-.auth-footer a:hover {
-  color: #ef242b;
-}
+/* ======================================
+   TABLET
+   KEEP SAME LEFT/RIGHT LAYOUT
+====================================== */
 
-/* ========================================
-   LAPTOP
-======================================== */
-
-@media (max-width: 1100px) {
+@media (max-width: 900px) {
   .auth-card {
-    padding: 45px 5%;
+    padding: 30px 4%;
   }
 
   .brand {
-    left: 5%;
-    width: 41%;
+    left: 4%;
+    width: 40%;
+  }
+
+  .brand h1 {
+    font-size: clamp(22px, 3.8vw, 34px);
+    letter-spacing: -1px;
+  }
+
+  .brand::after {
+    font-size: 14px;
   }
 
   .auth-header,
@@ -523,652 +379,193 @@ body {
   .auth-card > .error-message,
   .auth-card > .divider,
   .auth-card > .google-btn,
-  .auth-card > .switch-auth,
   .auth-footer {
-    max-width: 390px;
+    width: 45%;
   }
 }
 
-/* ========================================
-   TABLET / MOBILE
-======================================== */
+/* ======================================
+   PHONE - SAME TWO-COLUMN DESIGN
+====================================== */
 
-@media (max-width: 800px) {
+@media (max-width: 600px) {
+
+  /* Pink LEFT, white RIGHT */
+
   .auth-page::before {
-    width: 100%;
-    height: 190px;
-    bottom: auto;
+    width: 46%;
+    height: 100%;
+    background: linear-gradient(
+      155deg,
+      #fff6f5,
+      #ffd4d1
+    );
   }
 
   .auth-page::after {
-    display: none;
+    width: 180px;
+    height: 180px;
+    left: -95px;
+    bottom: -80px;
   }
 
   .auth-card {
     min-height: 100dvh;
-    padding: 32px 24px 45px;
+    padding: 20px 12px;
 
-    justify-content: flex-start;
-    align-items: center;
+    align-items: flex-end;
+    justify-content: center;
   }
+
+  /* Left logo stays on left */
 
   .brand {
-    position: relative;
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
 
-    top: auto;
-    left: auto;
+    width: calc(46% - 22px);
 
-    transform: none;
-
-    width: 100%;
-    max-width: 460px;
-
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     justify-content: center;
-    margin-bottom: 58px;
-  }
+    gap: 12px;
 
-  .brand h1 {
-    font-size: 30px;
-    letter-spacing: -1px;
+    margin: 0;
   }
 
   .brand-icon {
-    width: 48px;
-    height: 35px;
-    border-radius: 9px;
+    width: 42px;
+    height: 32px;
+    border-radius: 8px;
   }
 
   .brand-icon span {
     font-size: 16px;
   }
 
-  .brand::after {
-    content: none;
+  .brand h1 {
+    font-size: clamp(17px, 4.6vw, 24px);
+    letter-spacing: -0.8px;
+    white-space: nowrap;
   }
+
+  .brand::after {
+    content:
+      "Discover, create and share your favorite videos.";
+
+    font-size: 12px;
+    line-height: 1.6;
+    margin-top: 6px;
+    color: #806e72;
+  }
+
+  /* Form always remains on right */
 
   .auth-header,
   .auth-card form,
   .auth-card > .error-message,
   .auth-card > .divider,
   .auth-card > .google-btn,
-  .auth-card > .switch-auth,
   .auth-footer {
-    max-width: 460px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .auth-header {
-    margin-bottom: 26px;
-  }
-
-  .auth-header h2 {
-    font-size: 29px;
-  }
-}
-
-/* ========================================
-   SMALL MOBILE
-======================================== */
-
-@media (max-width: 480px) {
-  .auth-page::before {
-    height: 155px;
-  }
-
-  .auth-card {
-    padding: 25px 20px 35px;
-  }
-
-  .brand {
-    margin-bottom: 55px;
-  }
-
-  .brand h1 {
-    font-size: 26px;
-  }
-
-  .auth-header h2 {
-    font-size: 27px;
-  }
-
-  .auth-header p {
-    font-size: 14px;
-  }
-
-  .input-group {
-    margin-bottom: 19px;
-  }
-
-  .input-group > input,
-  .password-box input {
-    height: 51px;
-    font-size: 16px;
-  }
-
-  .signin-btn {
-    min-height: 51px;
-  }
-
-  .auth-footer {
-    font-size: 11px;
-  }
-}
-
-/* ========================================
-   VERY SMALL PHONE
-======================================== */
-
-@media (max-width: 360px) {
-  .auth-card {
-    padding: 22px 14px 28px;
-  }
-
-  .brand h1 {
-    font-size: 23px;
-  }
-
-  .auth-header h2 {
-    font-size: 25px;
-  }
-}
-
-/* ========================================
-   SHORT SCREENS
-======================================== */
-
-@media (max-height: 620px) and
-       (min-width: 801px) {
-  .auth-card {
-    justify-content: flex-start;
-  }
-}
-
-/* ========================================
-   ACCESSIBILITY
-======================================== */
-
-@media (prefers-reduced-motion: reduce) {
-  .signin-btn,
-  .input-group input {
-    transition: none;
-  }
-}
-
-
-
-/* ======================================
-   FAMILYTUBE MOBILE IMPROVEMENTS
-====================================== */
-
-@media (max-width: 600px) {
-
-  .auth-page {
-    min-height: 100dvh;
-    background: #ffffff;
-    overflow-x: hidden;
-  }
-
-  .auth-page::before {
-    width: 100%;
-    height: 220px;
-    background: linear-gradient(
-      135deg,
-      #fff3f3,
-      #ffd8d6
-    );
-  }
-
-  .auth-card {
-    width: 100%;
-    min-height: 100dvh;
-    padding: 25px 22px 30px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: flex-start;
-
-    background: transparent;
-    border: none;
-    box-shadow: none;
-  }
-
-  /* Logo */
-
-  .brand {
-    position: relative;
-    top: auto;
-    left: auto;
-    transform: none;
-
-    width: 100%;
-    margin: 10px 0 65px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .brand h1 {
-    font-size: 28px;
-  }
-
-  .brand::after {
-    display: none;
-  }
-
-  /* Sign in heading */
-
-  .auth-header {
-    width: 100%;
-    margin-bottom: 30px;
-  }
-
-  .auth-header h2 {
-    font-size: 28px;
-    margin-bottom: 9px;
-  }
-
-  .auth-header p {
-    font-size: 14px;
-    color: #777777;
-  }
-
-  /* Form */
-
-  .auth-card form {
-    width: 100%;
-  }
-
-  .input-group {
-    margin-bottom: 22px;
-  }
-
-  .input-group > input,
-  .password-box input {
-    height: 54px;
-    width: 100%;
-    font-size: 16px;
-  }
-
-  .signin-btn {
-    min-height: 54px;
-    margin-top: 12px;
-  }
-
-  /* Google and divider */
-
-  .divider {
-    margin-top: 30px;
-    margin-bottom: 30px;
-  }
-
-  .google-btn {
-    min-height: 52px;
-  }
-
-  /* Footer */
-
-  .auth-footer {
-    margin-top: 38px;
-    padding-top: 22px;
-    padding-bottom: 15px;
-  }
-}
-
-/* Small phones */
-
-@media (max-width: 380px) {
-
-  .auth-card {
-    padding: 20px 16px 25px;
-  }
-
-  .brand {
-    margin-bottom: 55px;
-  }
-
-  .brand h1 {
-    font-size: 24px;
-  }
-
-  .auth-header h2 {
-    font-size: 25px;
-  }
-}
-
-/* ==========================================
-   FAMILYTUBE MOBILE FINAL FIX
-   CLEAN + RESPONSIVE + FULL SCREEN
-========================================== */
-
-@media (max-width: 800px) {
-
-  .auth-page {
-    width: 100%;
-    min-height: 100vh;
-    min-height: 100dvh;
-    position: relative;
-    background: #ffffff;
-    overflow-x: hidden;
-  }
-
-  /* Smooth pink background without hard line */
-
-  .auth-page::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: auto;
-
-    width: 100%;
-    height: 360px;
-
-    background: linear-gradient(
-      180deg,
-      #ffe6e3 0%,
-      #fff0ee 50%,
-      rgba(255, 255, 255, 0) 100%
-    );
-
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  .auth-page::after {
-    display: none;
-  }
-
-  /* Full screen layout */
-
-  .auth-card {
-    position: relative;
-    z-index: 1;
-
-    width: 100%;
+    width: 52%;
     max-width: none;
-    min-height: 100vh;
-    min-height: 100dvh;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-
-    padding: 30px 24px 26px;
-
-    margin: 0;
-    background: transparent;
-    border: none;
-    border-radius: 0;
-    box-shadow: none;
-  }
-
-  /* FamilyTube logo */
-
-  .auth-card .brand {
-    position: relative;
-    top: auto;
-    left: auto;
-    transform: none;
-
-    width: 100%;
-    max-width: 460px;
-
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-
-    gap: 12px;
-
-    margin: 30px auto 58px;
-  }
-
-  .brand::after {
-    display: none;
-    content: none;
-  }
-
-  .brand-icon {
-    width: 49px;
-    height: 36px;
-    flex-shrink: 0;
-    border-radius: 10px;
-  }
-
-  .brand h1 {
-    font-size: 29px;
-    font-weight: 800;
-    letter-spacing: -1px;
-    white-space: nowrap;
-  }
-
-  /* Form container widths */
-
-  .auth-card .auth-header,
-  .auth-card form,
-  .auth-card > .error-message,
-  .auth-card > .divider,
-  .auth-card > .google-btn,
-  .auth-card > .switch-auth,
-  .auth-card .auth-footer {
-    width: 100%;
-    max-width: 460px;
     margin-left: auto;
-    margin-right: auto;
+    margin-right: 0;
   }
 
-  /* Welcome heading */
-
-  .auth-card .auth-header {
-    margin-bottom: 28px;
-  }
-
-  .auth-header h2 {
-    font-size: 30px;
-    line-height: 1.2;
-    font-weight: 750;
-    margin-bottom: 9px;
-  }
-
-  .auth-header p {
-    font-size: 14px;
-    color: #747985;
-    line-height: 1.5;
-  }
-
-  /* Input fields */
-
-  .input-group {
-    width: 100%;
-    margin-bottom: 22px;
-  }
-
-  .input-group label {
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 9px;
-  }
-
-  .input-group > input,
-  .password-box input {
-    width: 100%;
-    min-width: 0;
-    height: 54px;
-
-    padding: 0 16px;
-
-    font-size: 16px;
-    background: rgba(255, 255, 255, 0.8);
-    border: 1px solid #e0e2e7;
-    border-radius: 12px;
-
-    color: #23252b;
-  }
-
-  .input-group input:focus {
-    border-color: #f5222d;
-    background: #ffffff;
-    box-shadow: 0 0 0 3px rgba(245, 34, 45, 0.08);
-  }
-
-  .password-box {
-    position: relative;
-    width: 100%;
-  }
-
-  .password-box input {
-    padding-right: 80px;
-  }
-
-  .password-box button {
-    right: 12px;
-    color: #ed1b24;
-  }
-
-  /* Sign in button */
-
-  .signin-btn {
-    width: 100%;
-    min-height: 54px;
-
-    margin-top: 10px;
-
-    background: #f5222d;
-    color: white;
-    border: none;
-    border-radius: 30px;
-
-    font-size: 16px;
-    font-weight: 700;
-
-    box-shadow: 0 9px 22px rgba(245, 34, 45, 0.15);
-  }
-
-  .signin-btn:active {
-    transform: scale(0.98);
-  }
-
-  /* Google login, when enabled */
-
-  .auth-card > .divider {
-    margin-top: 28px;
-    margin-bottom: 28px;
-  }
-
-  .google-btn {
-    min-height: 52px;
-    border-radius: 28px;
-  }
-
-  /* Footer near bottom */
-
-  .auth-card .auth-footer {
-    margin-top: auto;
-    padding-top: 28px;
-    padding-bottom: 4px;
-
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 14px;
-
-    color: #9ca3af;
-    font-size: 12px;
-  }
-
-  .auth-footer a {
-    color: #7c828c;
-  }
-}
-
-/* ==========================================
-   SMALL MOBILE SCREENS
-========================================== */
-
-@media (max-width: 480px) {
-
-  .auth-card {
-    padding: 22px 20px 24px;
-  }
-
-  .auth-card .brand {
-    margin-top: 22px;
-    margin-bottom: 48px;
-  }
-
-  .brand h1 {
-    font-size: 27px;
-  }
-
-  .auth-header h2 {
-    font-size: 28px;
-  }
-
-  .auth-card .auth-header {
-    margin-bottom: 26px;
-  }
-
-  .input-group {
+  .auth-header {
     margin-bottom: 20px;
   }
 
-  .auth-card .auth-footer {
-    font-size: 11px;
-  }
-}
-
-/* ==========================================
-   VERY SMALL PHONES
-========================================== */
-
-@media (max-width: 360px) {
-
-  .auth-card {
-    padding: 18px 15px 22px;
-  }
-
-  .auth-card .brand {
-    margin-top: 18px;
-    margin-bottom: 36px;
-  }
-
-  .brand h1 {
-    font-size: 24px;
-  }
-
   .auth-header h2 {
-    font-size: 26px;
+    font-size: 24px;
+    margin-bottom: 7px;
+  }
+
+  .auth-header p {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .input-group {
+    margin-bottom: 17px;
+  }
+
+  .input-group label {
+    font-size: 12px;
+    margin-bottom: 7px;
   }
 
   .input-group > input,
   .password-box input {
-    height: 50px;
+    height: 46px;
+    padding: 0 10px;
+    font-size: 16px;
+    border-radius: 8px;
+  }
+
+  .password-box input {
+    padding-right: 49px;
+  }
+
+  .password-box button {
+    right: 4px;
+    font-size: 11px;
   }
 
   .signin-btn {
-    min-height: 50px;
+    min-height: 46px;
+    margin-top: 5px;
+    font-size: 14px;
+  }
+
+  .divider {
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+
+  .google-btn {
+    min-height: 44px;
+    font-size: 11px;
+  }
+
+  .auth-footer {
+    gap: 6px;
+    margin-top: 20px;
+    padding-top: 12px;
+    font-size: 10px;
+    text-align: center;
   }
 }
 
-/* Short landscape phone screens */
+/* SMALL PHONE */
 
-@media (max-width: 800px) and (max-height: 650px) {
-  .auth-card .brand {
-    margin-top: 12px;
-    margin-bottom: 30px;
+@media (max-width: 360px) {
+
+  .brand h1 {
+    font-size: 16px;
   }
 
-  .auth-card .auth-footer {
-    margin-top: 32px;
+  .brand::after {
+    font-size: 11px;
+  }
+
+  .auth-header h2 {
+    font-size: 22px;
+  }
+
+  .auth-card {
+    padding: 16px 9px;
   }
 }
 
+/* SHORT MOBILE LANDSCAPE */
 
-
-
+@media (max-height: 530px) {
+  .auth-card {
+    justify-content: flex-start;
+  }
+}
