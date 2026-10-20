@@ -694,3 +694,147 @@ body {
     transition: none;
   }
 }
+
+
+
+/* ======================================
+   FAMILYTUBE MOBILE IMPROVEMENTS
+====================================== */
+
+@media (max-width: 600px) {
+
+  .auth-page {
+    min-height: 100dvh;
+    background: #ffffff;
+    overflow-x: hidden;
+  }
+
+  .auth-page::before {
+    width: 100%;
+    height: 220px;
+    background: linear-gradient(
+      135deg,
+      #fff3f3,
+      #ffd8d6
+    );
+  }
+
+  .auth-card {
+    width: 100%;
+    min-height: 100dvh;
+    padding: 25px 22px 30px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+
+    background: transparent;
+    border: none;
+    box-shadow: none;
+  }
+
+  /* Logo */
+
+  .brand {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+
+    width: 100%;
+    margin: 10px 0 65px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .brand h1 {
+    font-size: 28px;
+  }
+
+  .brand::after {
+    display: none;
+  }
+
+  /* Sign in heading */
+
+  .auth-header {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .auth-header h2 {
+    font-size: 28px;
+    margin-bottom: 9px;
+  }
+
+  .auth-header p {
+    font-size: 14px;
+    color: #777777;
+  }
+
+  /* Form */
+
+  .auth-card form {
+    width: 100%;
+  }
+
+  .input-group {
+    margin-bottom: 22px;
+  }
+
+  .input-group > input,
+  .password-box input {
+    height: 54px;
+    width: 100%;
+    font-size: 16px;
+  }
+
+  .signin-btn {
+    min-height: 54px;
+    margin-top: 12px;
+  }
+
+  /* Google and divider */
+
+  .divider {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .google-btn {
+    min-height: 52px;
+  }
+
+  /* Footer */
+
+  .auth-footer {
+    margin-top: 38px;
+    padding-top: 22px;
+    padding-bottom: 15px;
+  }
+}
+
+/* Small phones */
+
+@media (max-width: 380px) {
+
+  .auth-card {
+    padding: 20px 16px 25px;
+  }
+
+  .brand {
+    margin-bottom: 55px;
+  }
+
+  .brand h1 {
+    font-size: 24px;
+  }
+
+  .auth-header h2 {
+    font-size: 25px;
+  }
+}
+
