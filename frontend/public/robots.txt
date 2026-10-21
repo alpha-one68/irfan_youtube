@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Disallow: /dashboard
+Disallow: /create-video
+Disallow: /login
+
+Sitemap: https://irfan-youtube-1.onrender.com/sitemap.xml
