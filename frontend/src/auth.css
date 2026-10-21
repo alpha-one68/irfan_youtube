@@ -1,242 +1,168 @@
+/* FamilyTube - Responsive Login */
 
-/* =========================================
-   FAMILYTUBE PHONE ONLY
-   PC DESIGN WILL NOT CHANGE
-========================================= */
+.auth-page {
+  min-height: 100vh;
+  min-height: 100dvh;
+  width: 100%;
+  background: #f4f5f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  font-family: Arial, sans-serif;
+  color: #171717;
+}
 
-@media screen and (max-width: 600px) {
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  padding: clamp(24px, 5vw, 40px);
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.06);
+}
 
+.auth-card .brand {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
+  width: 100%;
+  position: static;
+  transform: none;
+}
+
+.brand-icon {
+  background: #ef4444;
+  color: #ffffff;
+  border-radius: 8px;
+  width: 44px;
+  height: 34px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.brand h1 {
+  font-size: 24px;
+  font-weight: 800;
+  color: #171717;
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.auth-header h2 {
+  font-size: 26px;
+  margin-bottom: 8px;
+  color: #171717;
+}
+
+.auth-header p {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #374151;
+}
+
+.input-group > input,
+.password-box input {
+  width: 100%;
+  min-width: 0;
+  height: 48px;
+  padding: 0 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 9px;
+  background: #ffffff;
+  color: #171717;
+  font-size: 16px;
+  outline: none;
+}
+
+.input-group input:focus {
+  border-color: #ef4444;
+}
+
+.password-box {
+  position: relative;
+  width: 100%;
+}
+
+.password-box input {
+  padding-right: 65px;
+}
+
+.password-box button {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #6b7280;
+  cursor: pointer;
+}
+
+.signin-btn {
+  width: 100%;
+  min-height: 48px;
+  background: #ef4444;
+  border: none;
+  border-radius: 9px;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.signin-btn:hover {
+  background: #dc2626;
+}
+
+.auth-footer {
+  text-align: center;
+  margin-top: 24px;
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.auth-footer a {
+  color: #ef4444;
+}
+
+/* Small phones */
+@media (max-width: 480px) {
   .auth-page {
-    width: 100%;
-    min-height: 100vh;
-    min-height: 100dvh;
-    position: relative;
-    background: #ffffff;
-    overflow-x: hidden;
+    padding: 16px;
   }
-
-  /* Pink left side */
-
-  .auth-page::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-
-    width: 46%;
-    height: 100%;
-
-    background: linear-gradient(
-      145deg,
-      #fff7f6 0%,
-      #ffe2df 55%,
-      #ffc9c6 100%
-    );
-  }
-
-  .auth-page::after {
-    display: none;
-  }
-
-  /* Full-screen two-column layout */
 
   .auth-card {
-    position: relative;
-    z-index: 1;
-
-    width: 100%;
-    max-width: none;
-    min-height: 100dvh;
-
-    margin: 0;
-    padding: 20px 12px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: center;
-
-    background: transparent;
-    border: none;
-    border-radius: 0;
-    box-shadow: none;
-  }
-
-  /* Logo stays in pink panel */
-
-  .auth-card .brand {
-    position: absolute;
-    top: 50%;
-    left: 12px;
-    transform: translateY(-50%);
-
-    width: calc(46% - 24px);
-    max-width: none;
-
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 12px;
-
-    margin: 0;
-  }
-
-  .brand-icon {
-    width: 43px;
-    height: 32px;
-    border-radius: 9px;
-    flex-shrink: 0;
-  }
-
-  .brand-icon span {
-    font-size: 15px;
-  }
-
-  .brand h1 {
-    font-size: clamp(16px, 4.5vw, 22px);
-    font-weight: 800;
-    letter-spacing: -0.7px;
-    white-space: nowrap;
-  }
-
-  .auth-card .brand::after {
-    content: "Discover, create and share your favorite videos.";
-    display: block;
-
-    font-size: 12px;
-    line-height: 1.6;
-    color: #806e72;
-    margin-top: 8px;
-  }
-
-  /* Right-side login elements */
-
-  .auth-card .auth-header,
-  .auth-card form,
-  .auth-card > .error-message,
-  .auth-card > .divider,
-  .auth-card > .google-btn,
-  .auth-card > .switch-auth,
-  .auth-card .auth-footer {
-    width: 52%;
-    max-width: none;
-
-    margin-left: auto;
-    margin-right: 0;
-  }
-
-  /* Heading */
-
-  .auth-card .auth-header {
-    margin-bottom: 24px;
+    padding: 26px 20px;
+    border-radius: 14px;
   }
 
   .auth-header h2 {
-    font-size: 25px;
-    margin-bottom: 8px;
-  }
-
-  .auth-header p {
-    font-size: 12px;
-    line-height: 1.5;
-  }
-
-  /* Input fields */
-
-  .input-group {
-    width: 100%;
-    margin-bottom: 18px;
-  }
-
-  .input-group label {
-    font-size: 12px;
-    margin-bottom: 7px;
-  }
-
-  .input-group > input,
-  .password-box input {
-    width: 100%;
-    height: 48px;
-
-    padding: 0 10px;
-    font-size: 16px;
-
-    border-radius: 9px;
-  }
-
-  .password-box input {
-    padding-right: 52px;
-  }
-
-  .password-box button {
-    right: 5px;
-    font-size: 11px;
-  }
-
-  /* Sign in */
-
-  .signin-btn {
-    width: 100%;
-    min-height: 48px;
-    margin-top: 7px;
-
-    font-size: 14px;
-    border-radius: 25px;
-  }
-
-  /* Optional Google button */
-
-  .auth-card > .divider {
-    margin-top: 18px;
-    margin-bottom: 18px;
-  }
-
-  .google-btn {
-    min-height: 44px;
-    padding: 8px;
-    font-size: 11px;
-  }
-
-  /* Footer */
-
-  .auth-card .auth-footer {
-    margin-top: 24px;
-    padding-top: 14px;
-    padding-bottom: 0;
-
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 7px;
-
-    font-size: 10px;
-    text-align: center;
+    font-size: 23px;
   }
 }
 
-/* Extra-small phones */
-
-@media screen and (max-width: 360px) {
-  .auth-card {
-    padding: 16px 8px;
-  }
-
-  .auth-card .brand {
-    left: 8px;
-    width: calc(46% - 16px);
-  }
-
-  .brand h1 {
-    font-size: 15px;
-  }
-
-  .auth-header h2 {
-    font-size: 22px;
-  }
-
-  .auth-card .brand::after {
-    font-size: 11px;
+/* Short screens */
+@media (max-height: 600px) {
+  .auth-page {
+    align-items: flex-start;
   }
 }
